@@ -53,18 +53,18 @@
 # 0
 # The steps are [white,red,white,red]->[red,white,red]->[red,red]->[]. Therefore the answer is 3.
 
-
-n = int(input())
-arr = []
-
-for i in range (n):
-    arr.append(input())
-
-current = arr[0]
-conut = 0
-for i in range(1,n):
-    if arr[i] != current:
-        conut = conut+1
-        current = arr[i]
-
-print(conut)
+nodes = input().split(' ')
+# nodes = ['a','b','a',a'c','a']
+steps = 0
+heap = sorted(set(nodes), key= lambda node:nodes.count(node))
+for i in heap:
+    prev = None
+    print(i)
+    while nodes.__contains__(i):
+        if prev != i:
+            steps+=1
+            prev = i
+        nodes.remove(i)
+        
+print(heap)
+print(steps)
